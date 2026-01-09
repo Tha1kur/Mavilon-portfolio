@@ -3,145 +3,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mavilon - Portfolio</title>
+    <meta name="description" content="Aditya Yadav - B.Tech Student in Artificial Intelligence & Machine Learning at MITS Gwalior. Software Developer specializing in Frontend, Mobile Development, and AI/ML. View projects, skills, and contact information.">
+    <meta name="keywords" content="Aditya Yadav, AI ML Student, Software Developer, Portfolio, Frontend Developer, Mobile Developer, React.js, Kotlin, Android Developer, MITS Gwalior, B.Tech AI ML">
+    <meta name="author" content="Aditya Yadav">
+    <title>Aditya Yadav | B.Tech AI & ML Student | Software Developer Portfolio</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourportfolio.com/">
+    <meta property="og:title" content="Aditya Yadav | B.Tech AI & ML Student | Software Developer Portfolio">
+    <meta property="og:description" content="B.Tech Student in Artificial Intelligence & Machine Learning. Software Developer specializing in Frontend, Mobile Development, and AI/ML.">
+    <meta property="og:image" content="/assets/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourportfolio.com/">
+    <meta property="twitter:title" content="Aditya Yadav | B.Tech AI & ML Student | Software Developer Portfolio">
+    <meta property="twitter:description" content="B.Tech Student in Artificial Intelligence & Machine Learning. Software Developer specializing in Frontend, Mobile Development, and AI/ML.">
+    <meta property="twitter:image" content="/assets/og-image.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem 0;
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Smooth fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Section spacing */
+        section {
+            scroll-margin-top: 80px;
+        }
+        
+        /* Dark mode scrollbar */
+        .dark ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
             text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .project-header h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .tech-stack {
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
-
-        .tech-badge {
-            background: #667eea;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
         }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
+        
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 15px;
+                right: 15px;
+            }
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Mavilon Portfolio</h1>
-        <p>Showcasing my projects and skills</p>
-    </header>
-
-    <container>
-        <div class="projects">
-            <!-- Career Application -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h2>Career Application</h2>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-gray-800 dark:text-gray-100">
+                    <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Aditya Yadav</a>
                 </div>
-                <div class="project-body">
-                    <p>A comprehensive career management application built with modern technologies.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Kotlin</span>
-                        <span class="tech-badge">Android</span>
-                        <span class="tech-badge">Firebase</span>
-                    </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+                    <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
+                    <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+                    <button id="darkModeToggle" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl" id="darkModeIcon"></i>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4 md:hidden">
+                    <button id="darkModeToggleMobile" class="text-gray-700 dark:text-gray-300" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon text-xl" id="darkModeIconMobile"></i>
+                    </button>
+                    <button class="text-gray-700 dark:text-gray-300" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-700" id="mobileMenu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+                <a href="#about" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#education" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
+                <a href="#projects" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#contact" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-            <!-- ResultSet -->
-            <div class="project-card">
-                <div class="project-header">
-                    <h2>ResultSet</h2>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 pt-16 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center fade-in-up">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                    Hi, I'm <span class="text-blue-600 dark:text-blue-400">Aditya Yadav</span>
+                </h1>
+                <p class="text-xl sm:text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6">
+                    B.Tech Student – Artificial Intelligence & Machine Learning
+                </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+                    MITS Gwalior, Madhya Pradesh
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#projects" class="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        View Projects
+                    </a>
+                    <a href="https://github.com/Tha1kur" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <i class="fab fa-github mr-2"></i>View GitHub
+                    </a>
+                    <a href="/resume/Aditya_Yadav_Resume.pdf" download="Aditya_Yadav_Resume.pdf" class="px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-download mr-2"></i>Download Resume
+                    </a>
                 </div>
-                <div class="project-body">
-                    <p>A dynamic web application for managing and displaying results with an intuitive interface.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">CSS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">About Me</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-8 shadow-md">
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        I am a Computer Science student with a Diploma background and currently pursuing B.Tech in AI & ML at MITS Gwalior, Madhya Pradesh.
+                    </p>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        I focus on <strong>real-world problem solving</strong>, <strong>clean code</strong>, <strong>continuous learning</strong>, and <strong>practical execution</strong>. My approach to development is hands-on, and I believe in building solutions that make a difference.
+                    </p>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        I am looking for <strong>entry-level roles</strong>, <strong>internships</strong>, or <strong>freelance opportunities</strong> in software development where I can contribute, learn, and grow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Skills</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Frontend Skills -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <i class="fas fa-code text-4xl text-blue-600 dark:text-blue-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Frontend</h3>
+                            <div class="space-y-2">
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML5</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">CSS3</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Skills -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <i class="fas fa-mobile-alt text-4xl text-green-600 dark:text-green-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Mobile</h3>
+                            <div class="space-y-2">
+                                <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Kotlin</span>
+                                <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Java</span>
+                                <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Android SDK</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend/Cloud Skills -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <i class="fas fa-cloud text-4xl text-purple-600 dark:text-purple-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Backend/Cloud</h3>
+                            <div class="space-y-2">
+                                <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Firebase</span>
+                                <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">REST APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-center">
+                            <i class="fas fa-tools text-4xl text-orange-600 dark:text-orange-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Tools</h3>
+                            <div class="space-y-2">
+                                <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Git</span>
+                                <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">GitHub</span>
+                                <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">VS Code</span>
+                                <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Android Studio</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </container>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Mavilon Portfolio. All rights reserved.</p>
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Education</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <!-- B.Tech -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-blue-600 dark:border-blue-400">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">B.Tech in AI & ML</h3>
+                                <p class="text-gray-700 dark:text-gray-300 mb-1">MITS Gwalior, Madhya Pradesh</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Currently Pursuing</p>
+                            </div>
+                            <div class="mt-4 sm:mt-0">
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Ongoing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Diploma -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-green-600 dark:border-green-400">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Diploma in Computer Science</h3>
+                                <p class="text-gray-700 dark:text-gray-300 mb-1">Govt. Polytechnic Datia, MP</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">3 Years</p>
+                            </div>
+                            <div class="mt-4 sm:mt-0">
+                                <span class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">First Division</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Class 10th -->
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-600 rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-purple-600 dark:border-purple-400">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Class 10th CBSE</h3>
+                                <p class="text-gray-700 dark:text-gray-300 mb-1">KV Datia, MP</p>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm">Secondary Education</p>
+                            </div>
+                            <div class="mt-4 sm:mt-0">
+                                <span class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">First Division</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-gray-100">Projects & Code</h2>
+            <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">(REAL WORK)</p>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Career Application</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                                Short description of your project. Explain what it does, the problem it solves, or its key features.
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Tech Stack:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">Kotlin</span>
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">Android</span>
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">Firebase</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/Tha1kur/CareerApplication" target="_blank" rel="noopener noreferrer" class="w-full px-4 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded-lg text-center hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors text-sm font-semibold">
+                                    <i class="fab fa-github mr-2"></i>View Code (GitHub)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">ResultSet</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                                Short description of your project. Explain what it does, the problem it solves, or its key features.
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Tech Stack:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">HTML</span>
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">CSS</span>
+                                    <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/Tha1kur/ResultSet" target="_blank" rel="noopener noreferrer" class="w-full px-4 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded-lg text-center hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors text-sm font-semibold">
+                                    <i class="fab fa-github mr-2"></i>View Code (GitHub)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Get In Touch</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-8 shadow-md">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Email -->
+                        <a href="mailto:mavilonproductions@gmail.com" class="flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <i class="fas fa-envelope text-3xl text-blue-600 dark:text-blue-400 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Email</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center break-all">mavilonproductions@gmail.com</p>
+                        </a>
+                        
+                        <!-- GitHub -->
+                        <a href="https://github.com/Tha1kur" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <i class="fab fa-github text-3xl text-gray-800 dark:text-gray-200 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">GitHub</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center">github.com/Tha1kur</p>
+                        </a>
+                        
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/mavilon" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
+                            <i class="fab fa-linkedin text-3xl text-blue-700 dark:text-blue-400 mb-3 group-hover:scale-110 transition-transform"></i>
+                            <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">LinkedIn</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-center">linkedin.com/in/mavilon</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-8 border-t border-gray-700 dark:border-gray-600 transition-colors duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 dark:text-gray-500">
+                &copy; 2026 Aditya Yadav. All rights reserved.
+            </p>
+            <p class="text-gray-500 dark:text-gray-600 text-sm mt-2">
+                Built with HTML, Tailwind CSS, CSS & JavaScript
+            </p>
+        </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917489120736?text=Hello%20Aditya,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
