@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mavilon Portfolio</title>
+    <title>Mavilon - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,157 +12,136 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1000px;
-            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
         }
 
         header {
-            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            margin-bottom: 50px;
+            padding: 2rem 0;
+            text-align: center;
         }
 
         header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         header p {
-            font-size: 1.1em;
+            font-size: 1.1rem;
             opacity: 0.9;
+        }
+
+        container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
         .project-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
         }
 
         .project-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 1.5rem;
         }
 
         .project-header h2 {
-            font-size: 1.8em;
-            margin-bottom: 5px;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content p {
-            color: #333;
-            margin-bottom: 15px;
-            line-height: 1.6;
+        .project-body {
+            padding: 1.5rem;
         }
 
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
 
-        .tech-tag {
+        .tech-badge {
             background: #667eea;
             color: white;
-            padding: 8px 15px;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         footer {
-            text-align: center;
+            background: #333;
             color: white;
-            padding: 20px;
-            opacity: 0.8;
-        }
-
-        @media (max-width: 768px) {
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mavilon Portfolio</h1>
-            <p>Showcasing my projects and technical expertise</p>
-        </header>
+    <header>
+        <h1>Mavilon Portfolio</h1>
+        <p>Showcasing my projects and skills</p>
+    </header>
 
+    <container>
         <div class="projects">
-            <!-- Project 1: Career Application -->
+            <!-- Career Application -->
             <div class="project-card">
                 <div class="project-header">
                     <h2>Career Application</h2>
                 </div>
-                <div class="project-content">
-                    <p>A modern web application for managing career opportunities and applications with an intuitive user interface.</p>
+                <div class="project-body">
+                    <p>A comprehensive career management application built with modern technologies.</p>
                     <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">CSS</span>
+                        <span class="tech-badge">Kotlin</span>
+                        <span class="tech-badge">Android</span>
+                        <span class="tech-badge">Firebase</span>
                     </div>
-                    <p><strong>Features:</strong> Job tracking, application management, and dashboard analytics.</p>
                 </div>
             </div>
 
-            <!-- Project 2: ResultSet -->
+            <!-- ResultSet -->
             <div class="project-card">
                 <div class="project-header">
                     <h2>ResultSet</h2>
                 </div>
-                <div class="project-content">
-                    <p>A mobile application for managing and viewing academic results with real-time updates and notifications.</p>
+                <div class="project-body">
+                    <p>A dynamic web application for managing and displaying results with an intuitive interface.</p>
                     <div class="tech-stack">
-                        <span class="tech-tag">Kotlin</span>
-                        <span class="tech-tag">Android</span>
-                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">CSS</span>
                     </div>
-                    <p><strong>Features:</strong> Result tracking, notifications, and cloud synchronization.</p>
                 </div>
             </div>
         </div>
+    </container>
 
-        <footer>
-            <p>&copy; 2026 Mavilon Portfolio. All rights reserved.</p>
-        </footer>
-    </div>
+    <footer>
+        <p>&copy; 2026 Mavilon Portfolio. All rights reserved.</p>
+    </footer>
 </body>
 </html>
