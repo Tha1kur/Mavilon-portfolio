@@ -6,6 +6,7 @@
     <meta name="description" content="Aditya Yadav - B.Tech Student in Artificial Intelligence & Machine Learning at MITS Gwalior. Software Developer specializing in Frontend, Mobile Development, and AI/ML. View projects, skills, and contact information.">
     <meta name="keywords" content="Aditya Yadav, AI ML Student, Software Developer, Portfolio, Frontend Developer, Mobile Developer, React.js, Kotlin, Android Developer, MITS Gwalior, B.Tech AI ML">
     <meta name="author" content="Aditya Yadav">
+    
     <title>Aditya Yadav | B.Tech AI & ML Student | Software Developer Portfolio</title>
     
     <!-- Open Graph / Facebook -->
@@ -37,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -136,6 +137,54 @@
                 right: 15px;
             }
         }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+        }
+
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            pointer-events: none;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #22d3ee;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #22d3ee;
+            transition: all 0.15s ease;
+        }
+        /* Floating particles */
+#particles-canvas {
+    pointer-events: none;
+}
+
+/* Page transition animation */
+.page-fade-in {
+    animation: pageFadeIn 0.8s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -182,29 +231,36 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 pt-16 transition-colors duration-300">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center fade-in-up">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                    Hi, I'm <span class="text-blue-600 dark:text-blue-400">Aditya Yadav</span>
-                </h1>
-                <p class="text-xl sm:text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-6">
-                    B.Tech Student – Artificial Intelligence & Machine Learning
-                </p>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-                    MITS Gwalior, Madhya Pradesh
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#projects" class="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                        View Projects
-                    </a>
-                    <a href="https://github.com/Tha1kur" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                        <i class="fab fa-github mr-2"></i>View GitHub
-                    </a>
-                    <a href="/resume/Aditya_Yadav_Resume.pdf" download="Aditya_Yadav_Resume.pdf" class="px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                        <i class="fas fa-download mr-2"></i>Download Resume
-                    </a>
-                </div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+        <source src="https://res.cloudinary.com/dgqp3kmpm/video/upload/v1768321353/hero_nmh4aw.mp4" type="video/mp4">
+        </video>
+
+        <div class="absolute inset-0 bg-black/60"></div>
+        <canvas id="particles-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+        <div class="relative z-10 text-center fade-in-up container mx-auto px-6 py-20">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 font-[Poppins]">
+                Hi, I'm <span class="text-cyan-400">Aditya Yadav</span>
+            </h1>
+            <p class="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-6">
+                AI & ML Developer • Software Engineer
+            </p>
+            <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+                Building intelligent, modern and high‑performance digital experiences
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#projects" class="px-10 py-4 bg-cyan-400 text-black rounded-full font-semibold hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    View Projects
+                </a>
+                <a href="https://github.com/Tha1kur" target="_blank" rel="noopener noreferrer"
+                    class="px-10 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="/resume/Aditya_Yadav_Resume.pdf" download
+                    class="px-10 py-4 bg-green-500 text-white rounded-full font-semibold hover:bg-green-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-download mr-2"></i> Resume
+                </a>
             </div>
         </div>
     </section>
@@ -352,7 +408,7 @@
             <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Project 1 -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                    <div class="glass-card overflow-hidden">
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Career Application</h3>
                             <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
@@ -375,7 +431,7 @@
                     </div>
                     
                     <!-- Project 2 -->
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                    <div class="glass-card overflow-hidden">
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">ResultSet</h3>
                             <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
@@ -453,5 +509,9 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+    <!-- Page Transition Overlay -->
+    <div id="page-transition" class="fixed inset-0 bg-black z-[9998] pointer-events-none opacity-0 transition-opacity duration-700"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 </body>
 </html>
